@@ -1,8 +1,8 @@
 FROM phusion/baseimage:0.9.19
 
 # Update accordingly to Unifi Controller desired
-ENV UNIFI_VERSION 5.3.8
-ENV UNIFI_DEB_URL https://www.ubnt.com/downloads/unifi/5.3.8-d66ec0b93d/unifi_sysvinit_all.deb
+ENV UNIFI_VERSION 5.3.9
+ENV UNIFI_DEB_URL https://www.ubnt.com/downloads/unifi/5.3.9-dd133e2607/unifi_sysvinit_all.deb
 
 # We'll run the mongo prune script every day at 2am to minimize
 #  DB Stats to last 14 days.  See crontab addition above
