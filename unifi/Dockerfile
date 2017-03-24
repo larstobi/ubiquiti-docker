@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.19
 
 # Update accordingly to Unifi Controller desired
-ENV UNIFI_VERSION 5.5.8-f7e54e94a4
+ENV UNIFI_VERSION 5.4.14-1609d2a235
 ENV UNIFI_DEB_URL https://www.ubnt.com/downloads/unifi/${UNIFI_VERSION}/unifi_sysvinit_all.deb
 
 # We'll run the mongo prune script every day at 2am to minimize
