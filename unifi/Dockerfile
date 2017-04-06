@@ -1,4 +1,4 @@
-FROM phusion/baseimage:0.9.19
+FROM phusion/baseimage:latest
 
 # Update accordingly to Unifi Controller desired
 ENV UNIFI_VERSION 5.5.9-b608d637ae
