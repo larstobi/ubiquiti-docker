@@ -1,4 +1,4 @@
-FROM phusion/baseimage:latest
+FROM phusion/baseimage:0.9.21
 
 # Must be passed in at build time with --build-arg
 ENV UNIFI_VIDEO_VERSION 3.6.3
