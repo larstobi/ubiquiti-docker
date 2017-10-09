@@ -24,7 +24,7 @@ RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selectio
     sed -i.bak 's/ulimit -H -c 200//g' /usr/sbin/unifi-video && \
     chmod 755 /usr/sbin/unifi-video && \
     mkdir -p /usr/lib/unifi-video/certificates
-    sed -i.bak 's/PKGUSER=unifi-video/PKGUSER=root/g' /usr/sbin/unifi-video && \
+    #sed -i.bak 's/PKGUSER=unifi-video/PKGUSER=root/g' /usr/sbin/unifi-video && \
     chown -R unifi-video:unifi-video /var/lib/unifi-video /usr/lib/unifi-video /var/log/unifi-video && \
     chwon -R root:root /var/log/unifi-video
 
