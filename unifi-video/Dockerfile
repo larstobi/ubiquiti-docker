@@ -4,7 +4,7 @@ FROM phusion/baseimage:latest
 ENV UNIFI_VIDEO_VERSION 3.8.1
 ENV UNIFI_VIDEO_DEB_URL https://dl.ubnt.com/firmwares/ufv/v${UNIFI_VIDEO_VERSION}/unifi-video.Ubuntu16.04_amd64.v${UNIFI_VIDEO_VERSION}.deb
 
-# We are installing mongodb 3.4 here so that the wiredtiger storage
+# We are installing mongodb 3.2 here so that the wiredtiger storage
 #  engine will get used by default.  Unifi Video starts mongod with 
 #  the --smallfiles option, which is a config that is only relevant 
 #  for mmapv1 storage engine.  We end up with a log that says 
@@ -14,7 +14,7 @@ ENV UNIFI_VIDEO_DEB_URL https://dl.ubnt.com/firmwares/ufv/v${UNIFI_VIDEO_VERSION
 #
 RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selections && \
     apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv EA312927 && \
-    echo "deb http://repo.mongodb.org/apt/ubuntu xenial/mongodb-org/3.4 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.4.list && \
+    echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.2 multiverse" > /etc/apt/sources.list.d/mongodb-org-3.2.list && \
     apt-get update && apt-get install -y mongodb-org && \
     curl -L ${UNIFI_VIDEO_DEB_URL} -o /tmp/unifi-video.deb && \
     mkdir -p /var/cache/unifi-video && \
