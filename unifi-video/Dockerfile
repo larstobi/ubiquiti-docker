@@ -23,10 +23,7 @@ RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selectio
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     sed -i.bak 's/ulimit -H -c 200//g' /usr/sbin/unifi-video && \
     chmod 755 /usr/sbin/unifi-video && \
-	mkdir -p /usr/lib/unifi-video/certificates
-    #sed -i.bak 's/PKGUSER=unifi-video/PKGUSER=root/g' /usr/sbin/unifi-video && \
-    #chown -R unifi-video:unifi-video /var/lib/unifi-video /usr/lib/unifi-video /var/log/unifi-video && \
-	#chwon -R root:root /var/log/unifi-video
+    mkdir -p /usr/lib/unifi-video/certificates
 
 ADD start.sh /bin
 RUN /bin/chmod +x /bin/start.sh
