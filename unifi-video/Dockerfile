@@ -19,14 +19,15 @@ RUN echo "debconf debconf/frontend select Noninteractive" | debconf-set-selectio
     curl -L ${UNIFI_VIDEO_DEB_URL} -o /tmp/unifi-video.deb && \
     mkdir -p /var/cache/unifi-video && \
     mkdir -p /var/run/unifi-video && \
+    mkdir -p /usr/lib/unifi-video/certificates && \
     dpkg -i /tmp/unifi-video.deb || /bin/true && apt-get -yf --force-yes install && \
     apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* && \
     sed -i.bak 's/ulimit -H -c 200//g' /usr/sbin/unifi-video && \
+    sed -i.bak 's/PKGUSER=unifi-video/PKGUSER=root/g' /usr/sbin/unifi-video && \
     chmod 755 /usr/sbin/unifi-video && \
-    mkdir -p /usr/lib/unifi-video/certificates
-    #sed -i.bak 's/PKGUSER=unifi-video/PKGUSER=root/g' /usr/sbin/unifi-video && \
+    chmod 755 /usr/lib/unifi-video/certificates && \
     chown -R unifi-video:unifi-video /var/lib/unifi-video /usr/lib/unifi-video /var/log/unifi-video && \
-    chwon -R root:root /var/log/unifi-video
+    chown -R root:root /var/log/unifi-video
 
 ADD start.sh /bin
 RUN /bin/chmod +x /bin/start.sh
