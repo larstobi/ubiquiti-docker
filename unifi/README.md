@@ -8,5 +8,11 @@ Here's an example of the run command from my system, you may
 need to change the directory for the host volume mount:
 
 ```
+docker pull supafyn/unifi-controller:latest
+
+docker stop unifi
+
+docker rm -f unifi
+
 docker run -d -p 3478:3478/udp -p 8080:8080 -p 8443:8443 -p 8843:8843 -p 8880:8880 -v /volume1/docker/unifi/:/var/lib/unifi --restart=always --name=unifi --net=host -h unifi supafyn/unifi-controller:latest
 ```
