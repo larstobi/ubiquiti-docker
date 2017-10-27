@@ -1,7 +1,7 @@
 FROM phusion/baseimage:0.9.22
 
 # Must be passed in at build time with --build-arg
-ENV UNIFI_VIDEO_VERSION 3.8.3
+ENV UNIFI_VIDEO_VERSION 3.8.4
 ENV UNIFI_VIDEO_DEB_URL https://dl.ubnt.com/firmwares/ufv/v${UNIFI_VIDEO_VERSION}/unifi-video.Ubuntu16.04_amd64.v${UNIFI_VIDEO_VERSION}.deb
 
 # We are installing mongodb 3.4 here so that the wiredtiger storage
