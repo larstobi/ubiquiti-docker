@@ -1,16 +1,16 @@
 NAME = supafyn/unifi-video-controller
-VERSION = 3.6.2
-UNIFI_VIDEO_DEB_URL=https://dl.ubnt.com/firmwares/unifi-video/$(VERSION)/unifi-video_$(VERSION)~Ubuntu16.04_amd64.deb
+VERSION=3.9.4
+UNIFI_VIDEO_DEB_URL=http://dl.ubnt.com/firmwares/ufv/v$(VERSION)/unifi-video.Ubuntu16.04_amd64.v$(VERSION).deb
 
 .PHONY: all build test tag_latest release
 
 all: build
 
 build:
-	docker build --no-cache --build-arg UNIFI_VIDEO_VERSION=$(VERSION) --build-arg UNIFI_VIDEO_DEB_URL=$(UNIFI_VIDEO_DEB_URL) -t $(NAME):$(VERSION) --rm .
+	docker build --no-cache --build-arg UNIFI_VIDEO_VERSION=$(VERSION) --build-arg UNIFI_VIDEO_DEB_URL=$(UNIFI_VIDEO_DEB_URL) -t $(NAME):$(VERSION) --rm=true .
 
 test:
-	env NAME=$(NAME) VERSION=$(VERSION) ./mocktest.sh
+	env NAME=$(NAME) VERSION=$(VERSION) ./mock_test.sh
 
 tag_latest:
 	docker tag $(NAME):$(VERSION) $(NAME):latest
